@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CountdownWordGame.MainPage"
+             BackgroundColor="LightBlue">
+
+    <StackLayout Padding="10">
+        <!-- Name Input Screen -->
+        <StackLayout x:Name="NameInputScreen" VerticalOptions="CenterAndExpand">
+            <Label Text="Enter Player 1 name:" 
+                   FontSize="24" 
+                   HorizontalOptions="Center" />
+            <Entry x:Name="Player1NameEntry" 
+                   Placeholder="Player 1 name" 
+                   FontSize="20" 
+                   HorizontalOptions="Center" 
+                   WidthRequest="200"/>
+            <Label Text="Enter Player 2 name:" 
+                   FontSize="24" 
+                   HorizontalOptions="Center" />
+            <Entry x:Name="Player2NameEntry" 
+                   Placeholder="Player 2 name" 
+                   FontSize="20" 
+                   HorizontalOptions="Center" 
+                   WidthRequest="200"/>
+            <Button Text="Start Game" Clicked="OnStartGameButtonClicked" HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <!-- Letter Selection Screen -->
+        <StackLayout x:Name="LetterSelectionScreen" IsVisible="False" VerticalOptions="CenterAndExpand">
+            <Label Text="Select Letters:" FontSize="24" HorizontalOptions="Center"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="Consonant" Clicked="OnConsonantButtonClicked"/>
+                <Button Text="Vowel" Clicked="OnVowelButtonClicked"/>
+            </StackLayout>
+            <Label x:Name="LettersLabel" Text="Letters: " FontSize="20" HorizontalOptions="Center"/>
+            <Button Text="Done" Clicked="OnLettersSelectionDoneButtonClicked" HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <!-- Game Screen -->
+        <StackLayout x:Name="GameScreen" IsVisible="False">
+            <Label x:Name="PlayerTurnLabel" 
+                   FontSize="24" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start" />
+
+            <Label x:Name="Player1ScoreLabel" 
+                   Text="Player 1 Score: 0" 
+                   FontSize="18" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start" />
+
+            <Label x:Name="Player2ScoreLabel" 
+                   Text="Player 2 Score: 0" 
+                   FontSize="18" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start" />
+
+            <Label x:Name="TimerLabel" 
+                   Text="Time: 30" 
+                   FontSize="20"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="CenterAndExpand" />
+
+            <Label x:Name="GameLettersLabel" 
+                   Text="Letters: " 
+                   FontSize="20" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="CenterAndExpand" />
+
+            <Entry x:Name="WordEntry" 
+                   Placeholder="Enter your word" 
+                   FontSize="20" 
+                   HorizontalOptions="Center" 
+                   WidthRequest="200"/>
+
+            <Button Text="Check Word" Clicked="OnCheckWordButtonClicked" HorizontalOptions="Center"/>
+            <Label x:Name="ResultLabel" 
+                   Text="" 
+                   FontSize="18" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="CenterAndExpand" />
+
+            <!-- Play Again Button -->
+            <Button x:Name="PlayAgainButton" 
+                    Text="Play Again" 
+                    Clicked="OnPlayAgainButtonClicked" 
+                    HorizontalOptions="Center" 
+                    IsVisible="False"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
